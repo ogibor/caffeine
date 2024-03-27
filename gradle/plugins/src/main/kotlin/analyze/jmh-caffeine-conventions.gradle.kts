@@ -26,7 +26,7 @@ jmh {
 
   benchmarkMode.add("thrpt")
   warmupIterations = 3
-  iterations = 3
+  iterations = 30
   timeUnit = "s"
 
   failOnError = true
@@ -36,7 +36,7 @@ jmh {
   resultsFile = layout.buildDirectory.file("reports/jmh/results.json")
   resultFormat = "json"
 
-  val jvmArguments = mutableListOf("-Xmx2G")
+  val jvmArguments = mutableListOf("-Xmx16G")
   if (System.getenv("GRAALVM") == "true") {
     jvmArguments += listOf(
       "-XX:+UnlockExperimentalVMOptions", "-Dgraal.ShowConfiguration=info",
